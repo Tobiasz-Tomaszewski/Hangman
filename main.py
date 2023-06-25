@@ -1,16 +1,22 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from hangman_functions import *
+import random
+import sys
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+f = open('words.txt')
+words = f.readlines()
+f.close()
+words = [word.strip() for word in words]
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+for word in words:
+    if not word_is_valid(word):
+        print(f"Your 'words.txt' contains not supported sign. Only letters and spacebars are allowed.")
+        sys.exit()
+
+number_of_words = len(words)
+current_word = words[random.randint(0, number_of_words - 1)]
+user_guessed_letters = []
+current_state = [1 if v == ' 'else 0 for v in current_word]
+print(current_state)
+print(current_word)
+print(print_state(current_word, current_state))

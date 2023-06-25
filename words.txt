@@ -1,0 +1,8 @@
+hangman
+spider
+whale
+I like cheese
+yerba
+tea
+coffe
+python
