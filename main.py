@@ -1,5 +1,4 @@
 import random
-import sys
 from Hangman_class import *
 import hangman_drawing
 
